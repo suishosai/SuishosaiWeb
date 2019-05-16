@@ -4,15 +4,15 @@
 }
 
 .timecounter{
-   width: 31em !important;
-   margin: 0 !important;
+   margin: 0 auto !important;
    text-align: center !important;
 }
 
 .counter{
     display: inline-block !important;
-    max-width: 80px !important;
-    width:20%;
+    max-width: 100px !important;
+    width: 20%;
+    min-width: 60px;
     text-align: center !important;
 }
 
