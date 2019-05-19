@@ -1,8 +1,8 @@
 var Settings = {
     init_message: "翠翔祭ホームページへようこそ！<br>私は案内人の{name}と申します。<br>質問や雑談などお気軽にお話しくださいませ。<br>質問の際はクエスチョンマークのボタンを押すか、@qに続けて検索ワードを入力してください。",
-    concierge_img_url: "./images/concierge.png",
-    send_icon_img_url: "./images/send-icon.png",
-    question_img_url: "./images/question.png",
+    concierge_img_url: "https://suishosai.netlify.com/images/concierge.png",
+    send_icon_img_url: "https://suishosai.netlify.com/images/send-icon.png",
+    question_img_url: "https://suishosai.netlify.com/images/question.png",
     KEY_ENTER: 13
 }
 

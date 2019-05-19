@@ -11,6 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="shortcut icon" href="../images/favicon.ico" />
 	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/concierge.css" />
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 </head>
@@ -42,8 +43,8 @@
 		<!-- Main -->
 		  <div id="main">
 
-				<section class="post">
-		      <h1>サッカー部<h3 id="right">構成団体:サッカー部/場所:体育館ステージ</h3></h1>
+				<section class="post intro" style="border-top: 0;">
+		      	<h1 style="border-top: 0;">サッカー部<h3 id="right" style="border-top: 0; width:100%;">構成団体:サッカー部/場所:体育館ステージ</h3></h1>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/L-2.png" alt="" /></span>サッカー部2年による演劇です。低予算な制作費を駆使してどうにか人様に見せられるように尽力しました。内輪ネタは極力避けたので暇があったら休憩がてら見に来てください。席は多分空いてます。</p>
 				</section>
 
@@ -51,6 +52,20 @@
 			<style>
 				#right{
 					text-align: right;
+				}
+				.intro{
+					display: -moz-flex;
+					display: -webkit-flex;
+					display: -ms-flex;
+					display: flex;
+					-moz-flex-wrap: wrap;
+					-webkit-flex-wrap: wrap;
+					-ms-flex-wrap: wrap;
+					flex-wrap: wrap;
+					-moz-align-items: -moz-stretch;
+					-webkit-align-items: -webkit-stretch;
+					-ms-align-items: -ms-stretch;
+					align-items: stretch;
 				}
 			</style>
 		<!-- Footer -->
@@ -98,6 +113,6 @@
 	<script src="../assets/js/breakpoints.min.js"></script>
 	<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/main.js"></script>
-
+	<script src="../assets/js/concierge.js"></script>
 </body>
 </html>
