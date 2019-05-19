@@ -51,7 +51,7 @@ var logs = [];
 function initConcierge() {
     var parent = document.createElement("div");
     parent.innerHTML = Settings.template;
-    document.body.appendChild(parent);
+    document.getElementById("wrapper").appendChild(parent);
 
     //クリック時の挙動
     document.getElementById("concierge").hidden = true;
