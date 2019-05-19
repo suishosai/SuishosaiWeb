@@ -42,16 +42,11 @@
   transform: rotate(35deg);
 }
 
-/*@media screen and (max-width: 480px){
+@media screen and (max-width: 480px){
   #concierge-button{
-    border-radius: 50%;
-    width: 64px;
+    right: 5px;
   }
-
-  #concierge-button span{
-    display: none;
-  }
-}*/
+}
 
 #concierge-chat-box{
     position: fixed;
