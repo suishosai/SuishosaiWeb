@@ -62,11 +62,11 @@ function initConcierge() {
         if (!chat_box_el.hidden && !closest(e.target, "#concierge")) {
             triggerChatBox();
         }
-    })
+    }, true)
 
     document.getElementById("concierge-button").addEventListener("click", function (e) {
         triggerChatBox();
-    })
+    }, false)
 
     //textarea関連
     var textarea = document.getElementById("concierge-input");
