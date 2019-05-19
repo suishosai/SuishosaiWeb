@@ -1,13 +1,8 @@
 var Settings = {
-    background: {
-        r: 21,
-        g: 255,
-        b: 0
-    },
-    init_message: "翠翔祭ホームページへようこそ！<br>私は案内人の翠嵐太郎と申します。<br>質問や雑談などお気軽にお話しくださいませ。<br>質問の際はクエスチョンマークのボタンを押すか、@qに続けて検索ワードを入力してください。",
-    concierge_img_url: "./images/concierge.png",
-    send_icon_img_url: "./images/send-icon.png",
-    question_img_url: "./images/question.png",
+    init_message: "翠翔祭ホームページへようこそ！<br>私は案内人の{name}と申します。<br>質問や雑談などお気軽にお話しくださいませ。<br>質問の際はクエスチョンマークのボタンを押すか、@qに続けて検索ワードを入力してください。",
+    concierge_img_url: "./img/concierge.png",
+    send_icon_img_url: "./img/send-icon.png",
+    question_img_url: "./img/question.png",
     KEY_ENTER: 13
 }
 
@@ -25,6 +20,7 @@ Settings.template = `
     </div>
     <div id="concierge-button">
         <img src="${Settings.concierge_img_url}">
+        <span>&nbsp;ご質問はこちらから&nbsp;</span>
     </div>`;
 
 const SPEAKER_CONCIERGE = 0;
@@ -46,7 +42,9 @@ const SPEAKER_USER_BALLOON = `
         <p>{MESSAGE}</p>
     </div>`;
 
-window.addEventListener("load", (e) => { initConcierge() });
+window.addEventListener("load", (e) => {initConcierge()});
+
+var concierge_callbacks = [];
 
 var logs = [];
 
@@ -113,22 +111,25 @@ function triggerChatBox() {
     }
 }
 
-function sendMessage() {
+function sendMessage(){
     let textarea = document.getElementById("concierge-input");
     if (!(textarea.value.startsWith("\n") || textarea.value === "")) {
         createMessage(textarea.value, SPEAKER_USER);
 
         var query = encodeURI(textarea.value);
         var url = "https://suishosai-server-php.herokuapp.com/redirect3.php";
-        postData(url, createRequest("query", query), function (e) {
+        postData(url, createRequest("query", query), function(e){
             var status = e.target.status;
             var readyState = e.target.readyState;
             var response = e.target.responseText;
             if (status === 200 && readyState === 4) {
-
+                
                 var data = JSON.parse(response);
-
+                
                 for (var i = 0; i < data.length; i++) {
+                    for (var j = 0; j < concierge_callbacks.length; j++) {
+                        concierge_callbacks[j](data[i]);
+                    }
                     createMessage(data[i], SPEAKER_CONCIERGE);
                 }
             }
@@ -138,10 +139,10 @@ function sendMessage() {
 }
 
 /**
- *
+ * 
  * @param {String} msg a meesage
  * @param {int} speaker a sender. (refer to constant above.)
- *
+ * 
  * @return message object
  */
 function createMessage(msg, speaker) {
@@ -185,7 +186,7 @@ function closest(el, selector) {
     return null;
 }
 
-function postData(url, data, callback) {
+function postData(url, data, callback){
 
     var xhr = new XMLHttpRequest();
 
@@ -199,4 +200,8 @@ function postData(url, data, callback) {
 
 function createRequest(name, value) {
     return name + "=" + value;
+}
+
+function appendConciergeCallback(func) {
+    concierge_callbacks.push(func);
 }
