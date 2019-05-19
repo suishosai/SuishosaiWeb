@@ -57,12 +57,14 @@ function initConcierge() {
     document.getElementById("concierge").hidden = true;
 
     document.getElementById("wrapper").addEventListener("click", function (e) {
-        if (closest(e.target, "#concierge-button")) {
+        var chat_box_el = document.getElementById("concierge");
+
+        if (!chat_box_el.hidden && !closest(e.target, "#concierge")) {
             triggerChatBox();
         }
     })
 
-    document.getElementById("concierge-button").addEventListener("click", function(e){
+    document.getElementById("concierge-button").addEventListener("click", function (e) {
         triggerChatBox();
     })
 
