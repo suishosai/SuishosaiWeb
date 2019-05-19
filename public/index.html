@@ -144,5 +144,14 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="./assets/js/concierge.js"></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('sw.js')
+				.then(function (reg) {
+				}).catch(function (err) {
+					console.log("This happened: ", err)
+				});
+		}
+	</script>
 </body>
 </html>
