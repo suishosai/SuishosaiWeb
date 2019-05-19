@@ -7,6 +7,7 @@
     position: fixed;
     bottom: 20px;
     right: 40px;
+    z-index: 1000;
 }
 
 #concierge-button img{
@@ -41,7 +42,7 @@
   transform: rotate(35deg);
 }
 
-@media screen and (max-width: 480px){
+/*@media screen and (max-width: 480px){
   #concierge-button{
     border-radius: 50%;
     width: 64px;
@@ -50,7 +51,7 @@
   #concierge-button span{
     display: none;
   }
-}
+}*/
 
 #concierge-chat-box{
     position: fixed;
@@ -59,6 +60,7 @@
     bottom: 10px;
     right: 10px;
     box-shadow: 0px 0px 6px 3px #8fa3b7;
+    z-index: 1000;
 }
 
 @media screen and (max-width: 480px){
@@ -189,6 +191,7 @@ LINE stamp
     bottom: 0px;
     left: -1px;
     font-size: 1.3em;
+    z-index: 1000;
 }
 
 
