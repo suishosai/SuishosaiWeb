@@ -1,5 +1,7 @@
 ! function() {
 
+    lazyestload();
+
     // debounced scroll event
 
     function _scroll(a, b) {
