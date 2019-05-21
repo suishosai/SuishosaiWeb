@@ -24,26 +24,25 @@ window.addEventListener("load", function () {
 
         }
     })
-});
-    
+
     var t = 5;
     let gyozas = [];
-    
-    function createGyoza(){
-        if(gyozas.length <= 10){
+
+    function createGyoza() {
+        if (gyozas.length <= 10) {
             gyozas.push(new Gyoza());
         }
         setTimeout(createGyoza, 3000);
     }
-    
-    function doMove(){
-        for(var i = 0; i < gyozas.length; i++){
+
+    function doMove() {
+        for (var i = 0; i < gyozas.length; i++) {
             gyozas[i].doMove();
         }
         setTimeout(doMove, t);
     }
-           
-    function registerRythm(){
+
+    function registerRythm() {
         rythm.addRythm("pulse", "pulse", 150, 10);
         rythm.addRythm('neon1', 'neon', 0, 10, {
             from: [0, 0, 255],
@@ -84,13 +83,13 @@ window.addEventListener("load", function () {
             reverse: true
         })
     }
+});
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
-
 class Gyoza {
 
     constructor() {
