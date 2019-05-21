@@ -1,4 +1,4 @@
-window.onload = function(){
+window.addEventListener("load", function () {
     var rythm = new Rythm();
     rythm.setMusic('./assets/music/gyoza.mp3');
     registerRythm();
@@ -10,20 +10,21 @@ window.onload = function(){
         rythm.start();
     }
 
-    appendConciergeCallback(function(text){
-        if(text === "The secret key was given"){
+    appendConciergeCallback(function (text) {
+        if (text === "The secret key was given") {
             onStart();
             createGyoza();
             doMove();
-        }else if(text === "Up Side Down"){
+        } else if (text === "Up Side Down") {
             document.getElementById("main").classList.add("reverse");
-        }else if(text === "May the Force be with you"){
+        } else if (text === "May the Force be with you") {
             document.getElementById("wrapper1").classList.add("starwars-outer");
             document.getElementById("wrapper").classList.add("starwars-inner");
             new Audio('./assets/music/starwars.mp3').play(); // 再生される
-            
+
         }
     })
+});
     
     var t = 5;
     let gyozas = [];
@@ -83,7 +84,6 @@ window.onload = function(){
             reverse: true
         })
     }
-}
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -91,9 +91,9 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
-class Gyoza{
+class Gyoza {
 
-    constructor(){
+    constructor() {
         this.img = document.createElement("img");
         this.img.classList.add("gyoza-img");
         this.img.src = "./images/gyoza.png";
@@ -115,14 +115,14 @@ class Gyoza{
         document.body.append(this.img);
     }
 
-    doMove(){
-        if(this.onMoving){
+    doMove() {
+        if (this.onMoving) {
             var W = window.innerWidth;
             var H = window.innerHeight;
 
             this.x += this.vx;
             this.y += this.vy;
-            if (  this.x <= 0) {
+            if (this.x <= 0) {
                 this.x = 0;
                 this.vx = -this.vx;
             }
@@ -143,20 +143,20 @@ class Gyoza{
             }
 
             this.rx += this.rvx;
-            if(this.rx <= 0){
+            if (this.rx <= 0) {
                 this.rx += 360;
             }
-            if(this.rx >= 360){
+            if (this.rx >= 360) {
                 this.rx -= 360;
             }
             this.img.style.left = this.x + "px";
             this.img.style.top = this.y + "px";
 
-            this.img.style.webkitTransform = "rotate("+this.rx+"deg)";
-            this.img.style.mozTransform = "rotate("+this.rx+"deg)";
-            this.img.style.msTransform = "rotate("+this.rx+"deg)";
-            this.img.style.oTransform = "rotate("+this.rx+"deg)";
-            this.img.style.transform = "rotate("+this.rx+"deg)";
+            this.img.style.webkitTransform = "rotate(" + this.rx + "deg)";
+            this.img.style.mozTransform = "rotate(" + this.rx + "deg)";
+            this.img.style.msTransform = "rotate(" + this.rx + "deg)";
+            this.img.style.oTransform = "rotate(" + this.rx + "deg)";
+            this.img.style.transform = "rotate(" + this.rx + "deg)";
         }
     }
 }
