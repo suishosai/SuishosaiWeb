@@ -2,7 +2,7 @@
     background: rgb(86, 70, 235);
     height: 64px;
     border-radius: 32px;
-    width: 256px;
+    width: 230px;
 
     position: fixed;
     bottom: 20px;
@@ -29,7 +29,7 @@
     position: absolute;
     border-radius: 25px;
     top: 50%;
-    left: calc(50% + 10px);
+    left: calc(58% + 10px);
     transform: translateY(-50%) translateX(-50%);
     -webkit-transform: translateY(-50%) translateX(-50%);
 }
@@ -38,7 +38,7 @@
   content: "";
   display: inline-block;
   position: absolute;
-  top: 3px; 
+  top: 3px;
   left: -19px;
   border: 8px solid transparent;
   border-right: 18px solid white;
@@ -128,7 +128,7 @@ LINE stamp
 }
 .says {
   display: inline-block;
-  position: relative; 
+  position: relative;
   margin: 0 0 0 50px;
   padding: 10px;
   max-width: 60%;
@@ -141,7 +141,7 @@ LINE stamp
   content: "";
   display: inline-block;
   position: absolute;
-  top: 3px; 
+  top: 3px;
   left: -19px;
   border: 8px solid transparent;
   border-right: 18px solid #edf1ee;
@@ -160,7 +160,7 @@ LINE stamp
 }
 .mycomment p {
   display: inline-block;
-  position: relative; 
+  position: relative;
   margin: 0 10px 0 0;
   padding: 8px;
   max-width: 70%;
@@ -174,7 +174,7 @@ LINE stamp
 .mycomment p:after {
   content: "";
   position: absolute;
-  top: 3px; 
+  top: 3px;
   right: -19px;
   border: 8px solid transparent;
   border-left: 18px solid #30e852;
