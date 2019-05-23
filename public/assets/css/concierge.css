@@ -225,3 +225,11 @@ LINE stamp
         max-width: 250px;
     }
 }
+
+.gyoza-img{
+    z-index:10000;
+    position: fixed;
+    width: 100px;
+    height: 80px;
+    top: 0px;
+}
