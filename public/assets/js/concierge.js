@@ -42,7 +42,7 @@ const SPEAKER_USER_BALLOON = `
         <p>{MESSAGE}</p>
     </div>`;
 
-window.addEventListener("load", (e) => {initConcierge()});
+window.addEventListener("DOMContentLoaded", (e) => {initConcierge()});
 
 var concierge_callbacks = [];
 
