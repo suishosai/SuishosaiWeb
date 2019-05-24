@@ -69,6 +69,7 @@
     $(window).on("load", (e) => {
         _scroll(function() {
             lazyestload();
-        }
-    )});
+        })
+        lazyestload();
+    });
 }();
