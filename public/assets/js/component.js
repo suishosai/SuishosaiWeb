@@ -1,22 +1,17 @@
-document.addEventListener("load", function(e){
-    //新規登録
-    if(!getUserID()){
-        register();
-    }
-})
-
-function register(){
-    getBrowserFingerPrint(function(fingerprint){
+function A() {
+    getBrowserFingerPrint(function (fingerprint) {
         window.localStorage.setItem("userid", fingerprint);
         postData(
-            "https://suishosai-server-php.herokuapp.com/redirect4.php", 
+            "https://suishosai-server-php.herokuapp.com/redirect4.php",
             createRequest("userid", fingerprint),
-            null
+            function () {
+                console.log("Hi")
+            }
         )
     });
 }
 
-function postData(url, data, callback){
+function postData(url, data, callback) {
 
     var xhr = new XMLHttpRequest();
 
@@ -28,30 +23,30 @@ function postData(url, data, callback){
     xhr.send(data);
 }
 
-function createVoteRequestUrl(data1, data2, data3, data4){
-    var str = 
-    createRequest("data1", data1) + "&" + 
-    createRequest("data2", data2) + "&" + 
-    createRequest("data3", data3) + "&" + 
-    createRequest("data4", data4) + "&" + 
-    createRequest("accessToken", getUserID());
-
-    return str;
-}
-
-function createStampRallyRequestUrl(content){
+function createVoteRequestUrl(data1, data2, data3, data4) {
     var str =
-    createRequest("text", content) + "&" +
-    createRequest("accessToken", getUserID());
+        createRequest("data1", data1) + "&" +
+        createRequest("data2", data2) + "&" +
+        createRequest("data3", data3) + "&" +
+        createRequest("data4", data4) + "&" +
+        createRequest("accessToken", getUserID());
 
     return str;
 }
 
-function createRequest(name, value){
+function createStampRallyRequestUrl(content) {
+    var str =
+        createRequest("text", content) + "&" +
+        createRequest("accessToken", getUserID());
+
+    return str;
+}
+
+function createRequest(name, value) {
     return name + "=" + value;
 }
 
-function getUserID(){
+function getUserID() {
     return window.localStorage.getItem("userid");
 }
 
@@ -74,7 +69,7 @@ function getQueryString() {
     return result;
 }
 
-function getBrowserFingerPrint(callback){
+function getBrowserFingerPrint(callback) {
     if (window.requestIdleCallback) {
         requestIdleCallback(function () {
             Fingerprint2.get(function (components) {

@@ -165,7 +165,9 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="./assets/js/concierge.js"></script>
-	<script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
+	<script src="assets/js/component.js"></script>
+	<!--<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('sw.js')
 				.then(function (reg) {
@@ -173,25 +175,6 @@
 					console.log("This happened: ", err)
 				});
 		}
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
-	<script>
-		if (window.requestIdleCallback) {
-				requestIdleCallback(function () {
-					Fingerprint2.get(function (components) {
-						var murmur = Fingerprint2.x64hash128(components.map(function (pair) { return pair.value }).join(), 31)
-						console.log(murmur);
-					})
-				})
-			} else {
-				setTimeout(function () {
-					Fingerprint2.get(function (components) {
-						var murmur = Fingerprint2.x64hash128(components.map(function (pair) { return pair.value }).join(), 31)
-						console.log(murmur);
-					})
-				}, 500)
-			}
-	</script>
-	<script src="assets/js/component.js"></script>
+	</script>-->
 </body>
 </html>
