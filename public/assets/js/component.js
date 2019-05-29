@@ -1,5 +1,12 @@
+A();
 function A() {
+    if(!getUserID()){
+        console.log("you have already logged in");
+        return;
+    }
     getBrowserFingerPrint(function (fingerprint) {
+        console.log(fingerprint);
+        
         window.localStorage.setItem("userid", fingerprint);
         postData(
             "https://suishosai-server-php.herokuapp.com/redirect4.php",
