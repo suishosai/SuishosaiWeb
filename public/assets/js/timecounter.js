@@ -8,7 +8,7 @@ window.onload = function (e) {
 };
 
 function f() {
-    var destination = new Date(2019, 5, 21, 23, 30, 0).valueOf();
+    var destination = new Date(2019, 5, 21, 0, 30, 0).valueOf();
     var now = Date.now();
     var _til = destination - now;
     var til = new Date(_til);
