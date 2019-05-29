@@ -4,8 +4,13 @@ function A() {
         postData(
             "https://suishosai-server-php.herokuapp.com/redirect4.php",
             createRequest("userid", fingerprint),
-            function () {
-                console.log("Hi")
+            function (e) {
+                var status = e.target.status;
+                var readyState = e.target.readyState;
+                var response = e.target.responseText;
+                if (status === 200 && readyState === 4) {
+                    console.log(response);
+                }
             }
         )
     });
