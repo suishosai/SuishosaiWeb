@@ -6,7 +6,6 @@ function A() {
     }
     getBrowserFingerPrint(function (fingerprint) {
         
-        window.localStorage.setItem("userid", fingerprint);
         postData(
             "https://suishosai-server-php.herokuapp.com/redirect4.php",
             createRequest("userid", fingerprint),
@@ -16,6 +15,7 @@ function A() {
                 var response = e.target.responseText;
                 if (status === 200 && readyState === 4) {
                     console.log(response);
+                    window.localStorage.setItem("userid", fingerprint);
                 }
             }
         )
