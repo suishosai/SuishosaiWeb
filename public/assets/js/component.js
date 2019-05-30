@@ -15,7 +15,7 @@ function A() {
                 var response = e.target.responseText;
                 if (status === 200 && readyState === 4) {
                     console.log(response);
-                    window.localStorage.setItem("userid", fingerprint);
+                    //window.localStorage.setItem("userid", fingerprint);
                 }
             }
         )
