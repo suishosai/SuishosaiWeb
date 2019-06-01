@@ -4709,7 +4709,7 @@ input, select, textarea {
   	-webkit-justify-content: center;
   	justify-content: center;
   	-webkit-align-items: stretch;
-	  align-items: stretch;
+	align-items: stretch;
 }
 .search:hover, .search:focus-within {
   opacity: 1;
