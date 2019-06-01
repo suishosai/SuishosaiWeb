@@ -1,5 +1,9 @@
 var Settings = {
-    init_message: "翠翔祭ホームページへようこそ！<br>私は案内人の{name}と申します。<br>質問や雑談などお気軽にお話しくださいませ。<br>質問の際はクエスチョンマークのボタンを押すか、@qに続けて検索ワードを入力してください。",
+    init_message:   "翠翔祭ホームページへようこそ！<br>"+
+                    "私は案内人の{name}と申します。<br>"+
+                    "質問や雑談などお気軽にお話しくださいませ。<br>"+
+                    "質問の際はクエスチョンマークのボタンを押すか、@qに続けて検索ワードを入力してください。<br>"+
+                    "例: @q 2階",
     concierge_img_url: "https://suishosai.netlify.com/images/concierge.png",
     send_icon_img_url: "https://suishosai.netlify.com/images/send-icon.png",
     question_img_url: "https://suishosai.netlify.com/images/question.png",
@@ -42,7 +46,7 @@ const SPEAKER_USER_BALLOON = `
         <p>{MESSAGE}</p>
     </div>`;
 
-window.addEventListener("load", (e) => {initConcierge()});
+window.addEventListener("DOMContentLoaded", (e) => {initConcierge()});
 
 var concierge_callbacks = [];
 

@@ -66,7 +66,10 @@
 
     // run on debounced scroll event and once on load
 
-    _scroll(function() {
+    $(window).on("load", (e) => {
+        _scroll(function() {
+            lazyestload();
+        })
         lazyestload();
-    })();
+    });
 }();

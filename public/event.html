@@ -11,7 +11,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="shortcut icon" href="images/favicon.ico" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="./assets/css/concierge.css">
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
@@ -48,6 +47,18 @@
 					text-align: center;
 				}
 			</style>
+			<label class="search">
+			
+				<div class="one">
+					<div class="two">
+						<div class="three">
+							<input type="search" class="four" placeholder="検索ワード 例: ２階" />
+						</div>
+						<div class="stick"></div>
+					</div>
+				</div>
+			
+			</label>
 			<div class="box alt">
 				<div class="row gtr-50 gtr-uniform">
 					<div class="col-4"><span class="image fit"><a href="events/A1.html"><img src="images/small/A-1.png" class="eventhover lazyestload" alt="鶏林 ～マジチキオオバヤシ～" data-src="images/big/A-1.png" /></a></span></div>
@@ -200,7 +211,11 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="./assets/js/concierge.js"></script>
 	<script src="./assets/js/lazyestload.js"></script>
+	<script>
+		document.querySelector('.stick').addEventListener('click', () => {
+			document.querySelector('.four').value = '';
+		});
+	</script>
 </body>
 </html>
