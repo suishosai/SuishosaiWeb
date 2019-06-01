@@ -121,6 +121,7 @@ LINE stamp
   height: auto;
   border-radius: 50%;
   background: rgb(86, 70, 235);
+  margin: 5px;
 }
 .balloon6 .chatting {
   width: 100%;
@@ -199,8 +200,8 @@ LINE stamp
     width: 16px;
     height: 16px;
     position: absolute;
-    left: 2px;
-    top: 2px;
+    left: 6px;
+    top: 6px;
 }
 
 
@@ -208,8 +209,8 @@ LINE stamp
     width: 16px;
     height: 16px;
     position: absolute;
-    right: 5px;
-    top: 2px;
+    right: 6px;
+    top: 6px;
 }
 
 @media screen and (min-width: 480px){
