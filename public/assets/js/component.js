@@ -12,7 +12,6 @@ function A() {
             function (e) {
                 var status = e.target.status;
                 var readyState = e.target.readyState;
-                var response = e.target.responseText;
                 if (status === 200 && readyState === 4) {
                     window.localStorage.setItem("userid", fingerprint);
                 }
@@ -33,12 +32,10 @@ function postData(url, data, callback) {
     xhr.send(data);
 }
 
-function createVoteRequestUrl(data1, data2, data3, data4) {
+function createVoteRequestUrl(data1, data2) {
     var str =
-        createRequest("data1", data1) + "&" +
-        createRequest("data2", data2) + "&" +
-        createRequest("data3", data3) + "&" +
-        createRequest("data4", data4) + "&" +
+        createRequest("data_org", data1) + "&" +
+        createRequest("data_index", data2) + "&" +
         createRequest("accessToken", getUserID());
 
     return str;

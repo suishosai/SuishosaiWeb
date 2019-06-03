@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>【公式】翠翔祭2019 タイムテーブル</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/concierge.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Voyage</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">TOP</a></li>
+                <li><a href="event.html">企画</a></li>
+                <li><a href="timetable.html">タイムテーブル</a></li>
+                <li><a href="notification.html">お知らせ</a></li>
+                <li><a href="access.html">アクセス</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://twitter.com/suishosai0123" class="icon fa-twitter"><span
+                            class="label">Twitter</span></a></li>
+                <li><a href="https://www.instagram.com/suishousai2019" class="icon fa-instagram"><span
+                            class="label">Instagram</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <div class="yokoku">
+                <p id="resultMessage"></p>
+                <button><a href="https://suishosai.netlify.com">トップページに戻る</a></button>
+            </div>
+            <style>
+                .yokoku {
+                    text-align: center;
+                }
+                .yokoku:last-child{
+                    padding: 4rem 4rem 2rem 4rem;
+                }
+                #resultMessage{
+                    text-align: center;
+                }
+            </style>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <section class="split contact">
+                <section class="alt">
+                    <h3>ADDRESS</h3>
+                    <p>〒221-0854 神奈川県横浜市神奈川区三ツ沢南町1-1<br />
+                        神奈川県立横浜翠嵐高等学校</p>
+                </section>
+                <section>
+                    <h3>TEL</h3>
+                    <p>045-311-4621(代表)</p>
+                </section>
+                <section>
+                    <h3>Email</h3>
+                    <p>翠翔祭2019実行委員会【公式】<br />
+                        suisyousai2019@gmail.com</p>
+                </section>
+                <section>
+                    <h3>Social</h3>
+                    <ul class="icons">
+                        <li><a href="https://twitter.com/suishosai0123" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="https://www.instagram.com/suishousai2019" class="icon fa-instagram"><span
+                                    class="label">Instagram</span></a></li>
+                    </ul>
+                </section>
+            </section>
+        </footer>
+        <section>
+            <div id="copyright">
+                <ul>
+                    <li>&copy; Yokohama Suiran High School All Rights Reserved.</li>
+                    <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/component.js"></script>
+    <script>
+        var res = getQueryString();
+        if(res["org"] !== undefined && res["type"] !== undefined){
+            postData(
+                "https://suishosai-server-php.herokuapp.com/redirect1.php", 
+                createVoteRequestUrl(res["org"], res["type"]),
+                function(e){
+                    var status = e.target.status;
+                    var readyState = e.target.readyState;
+                    var response = e.target.responseText;
+                    if (status === 200 && readyState === 4) {
+                         document.getElementById("resultMessage").textContent = response;
+                    }
+                }
+            )
+        }else{
+            document.getElementById("resultMessage").textContent = "不正なパラメータが付与されました";
+        }
+    </script>
+
+</body>
+
+</html>
