@@ -1,5 +1,4 @@
-A();
-function A() {
+function A(callback) {
     if(getUserID() !== null){
         return;
     }
@@ -13,6 +12,7 @@ function A() {
                 var readyState = e.target.readyState;
                 if (status === 200 && readyState === 4) {
                     window.localStorage.setItem("userid", fingerprint);
+                    callback();
                 }
             }
         )

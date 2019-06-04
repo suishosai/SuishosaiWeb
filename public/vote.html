@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>【公式】翠翔祭2019 タイムテーブル</title>
+    <title>【公式】翠翔祭2019 投票ページ</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="shortcut icon" href="images/favicon.ico" />
@@ -110,24 +110,34 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/component.js"></script>
+    <script src="assets/js/component.1.js"></script>
     <script>
         var res = getQueryString();
         if(res["org"] !== undefined && res["type"] !== undefined){
+            if (getUserID() !== null) {
+                post(res["org"], res["type"]);
+            }else{
+                A(function(){
+                    post(res["org"], res["type"]);
+                });
+            }
+        }else{
+            document.getElementById("resultMessage").textContent = "不正なパラメータが付与されました";
+        }
+
+        function post(org, type){
             postData(
-                "https://suishosai-server-php.herokuapp.com/redirect1.php", 
-                createVoteRequestUrl(res["org"], res["type"]),
-                function(e){
+                "https://suishosai-server-php.herokuapp.com/redirect1.php",
+                createVoteRequestUrl(org, type),
+                function (e) {
                     var status = e.target.status;
                     var readyState = e.target.readyState;
                     var response = e.target.responseText;
                     if (status === 200 && readyState === 4) {
-                         document.getElementById("resultMessage").textContent = response;
+                        document.getElementById("resultMessage").textContent = response;
                     }
                 }
             )
-        }else{
-            document.getElementById("resultMessage").textContent = "不正なパラメータが付与されました";
         }
     </script>
 

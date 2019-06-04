@@ -106,13 +106,13 @@ LINE stamp
 /*以下、②左側のコメント*/
 .balloon6 {
   width: 100%;
-  margin: 10px 0;
+  margin: 10px 10px;
   overflow: hidden;
 }
 
 .balloon6 .faceicon {
   float: left;
-  margin-right: -50px;
+  margin-right: -30px;
   width: 40px;
 }
 
@@ -120,7 +120,7 @@ LINE stamp
   width: 100%;
   height: auto;
   border-radius: 50%;
-  background: rgb(86, 70, 235);
+  background: rgb(251, 255, 0);/*これをいじりな！！！*/
   margin: 5px;
 }
 .balloon6 .chatting {
