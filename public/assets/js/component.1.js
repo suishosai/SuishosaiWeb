@@ -32,6 +32,8 @@ function postData(url, data, callback) {
 }
 
 function createVoteRequestUrl(data1, data2) {
+    console.log(getUserID());
+    
     var str =
         createRequest("data_org", data1) + "&" +
         createRequest("data_index", data2) + "&" +
