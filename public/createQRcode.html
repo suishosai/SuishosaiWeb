@@ -197,7 +197,7 @@
                 var orgs = document.getElementById("org");
                 var data_num = _DATA[value];
 
-                var url = "https://suishosai.netlify.com/vote.html?org="+orgs.value.replace("-", "_")+"&type="+data_num;
+                var url = "https://suishosai.netlify.com/vote.html?org=%22"+orgs.value.replace("-", "_")+"%22&type="+data_num;
                 
                 qrcode.makeCode(url);
             }
