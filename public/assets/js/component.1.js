@@ -10,8 +10,11 @@ function A(callback) {
             function (e) {
                 var status = e.target.status;
                 var readyState = e.target.readyState;
+                var response = e.target.responseText;
                 if (status === 200 && readyState === 4) {
                     window.localStorage.setItem("userid", fingerprint);
+                    console.log(response);
+                    
                     callback();
                 }
             }
