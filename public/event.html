@@ -52,7 +52,7 @@
 					<div class="one">
 						<div class="two">
 							<div class="three">
-								<input type="search" class="four" placeholder="検索ワード 例: ２階" />
+								<input id="search-input" type="search" class="four" placeholder="検索ワード 例: ２階" onkeydown="onInputChange()"/>
 							</div>
 							<div class="stick"></div>
 						</div>
@@ -223,5 +223,6 @@
 				document.querySelector('.four').value = '';
 			});
 		</script>
+		<script src="./assets/js/search.js"></script>
 </body>
 </html>
