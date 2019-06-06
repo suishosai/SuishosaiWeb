@@ -1,5 +1,5 @@
 #concierge-button{
-    background: rgb(86, 70, 235);
+    background: #F7E416;
     height: 64px;
     border-radius: 32px;
     width: 230px;
@@ -120,7 +120,7 @@ LINE stamp
   width: 100%;
   height: auto;
   border-radius: 50%;
-  background: rgb(251, 255, 0);/*これをいじりな！！！*/
+  background: #F7E416;/*これをいじりな！！！*/
   margin: 5px;
 }
 .balloon6 .chatting {
