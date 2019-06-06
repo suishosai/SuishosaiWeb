@@ -12,7 +12,7 @@ function A() {
                 var status = e.target.status;
                 var readyState = e.target.readyState;
                 if (status === 200 && readyState === 4) {
-                    window.localStorage.setItem("userid2", fingerprint);
+                    window.localStorage.setItem("userid3", fingerprint);
                 }
             }
         )
@@ -53,7 +53,7 @@ function createRequest(name, value) {
 }
 
 function getUserID() {
-    return window.localStorage.getItem("userid2");
+    return window.localStorage.getItem("userid3");
 }
 
 function getQueryString() {

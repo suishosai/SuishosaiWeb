@@ -12,7 +12,7 @@ function A(callback) {
                 var readyState = e.target.readyState;
                 var response = e.target.responseText;
                 if (status === 200 && readyState === 4) {
-                    window.localStorage.setItem("userid2", fingerprint);
+                    window.localStorage.setItem("userid3", fingerprint);
                     console.log(response);
                     
                     callback();
@@ -58,7 +58,7 @@ function createRequest(name, value) {
 }
 
 function getUserID() {
-    return window.localStorage.getItem("userid2");
+    return window.localStorage.getItem("userid3");
 }
 
 function getQueryString() {
