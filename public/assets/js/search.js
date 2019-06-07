@@ -2,6 +2,7 @@ function onInputChange(){
     var value = document.getElementById("search-input").value;
     
     if(value === ""){
+        console.log("発火");
         
         var els = document.querySelectorAll('.org-item');
         for (const el of els) {
