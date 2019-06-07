@@ -20,7 +20,9 @@ function onInputChange(){
             var readyState = e.target.readyState;
             var response = e.target.responseText;
             if (status === 200 && readyState === 4) {
-                
+                if(document.getElementById("search-input").value === ""){
+                    return;
+                }
                 var orgs = JSON.parse(response);
                 var els = document.querySelectorAll('.org-item');
                 var count = 0;
