@@ -28,6 +28,7 @@ function onInputChange(){
                         el.classList.add("hide");
                     }
                 }
+                lazyestload();
             }
         }
     )
