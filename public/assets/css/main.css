@@ -4851,3 +4851,7 @@ input[type="search"], input[type="search"]:focus {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
+
+.hide {
+	display: none;
+}

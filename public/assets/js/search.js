@@ -11,7 +11,16 @@ function onInputChange(){
             var response = e.target.responseText;
             if (status === 200 && readyState === 4) {
                 
-                console.log(JSON.parse(response));
+                var orgs = JSON.parse(response);
+                var els = document.querySelectorAll('.org-item');
+                for(const el of els){
+                    var org = el.getAttribute("data-org");
+                    if(orgs.includes(org)){
+                        el.classList.remove("hide");
+                    }else{
+                        el.classList.add("hide");
+                    }
+                }
             }
         }
     )
