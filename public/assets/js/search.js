@@ -5,6 +5,7 @@ function onInputChange(){
         for (const el of els) {
             el.classList.remove("hide");
         }
+        return;
     }
 
     postData(
