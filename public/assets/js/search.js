@@ -2,7 +2,6 @@ function onInputChange(){
     var value = document.getElementById("search-input").value;
     
     if(value === ""){
-        console.log("発火");
         
         var els = document.querySelectorAll('.org-item');
         for (const el of els) {
@@ -38,7 +37,6 @@ function onInputChange(){
                     }
                 }
                 lazyestload();
-                console.log(count);
                 if(count === 0){
                     document.getElementById("empty").classList.remove('hide');
                 }else{
