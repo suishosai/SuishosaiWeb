@@ -1,10 +1,13 @@
 function onInputChange(){
     var value = document.getElementById("search-input").value;
+    
     if(value === ""){
+        
         var els = document.querySelectorAll('.org-item');
         for (const el of els) {
             el.classList.remove("hide");
         }
+        document.getElementById("empty").classList.add('hide');
         return;
     }
 
@@ -19,16 +22,22 @@ function onInputChange(){
                 
                 var orgs = JSON.parse(response);
                 var els = document.querySelectorAll('.org-item');
+                var count = 0;
                 for(const el of els){
                     var org = el.getAttribute("data-org");
                     
                     if(orgs.includes(org)){
                         el.classList.remove("hide");
+                        count ++;
                     }else{
                         el.classList.add("hide");
                     }
                 }
                 lazyestload();
+
+                if(count === 0){
+                    document.getElementById("empty").classList.remove('hide');
+                }
             }
         }
     )
