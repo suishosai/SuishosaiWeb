@@ -41,6 +41,8 @@ function onInputChange(){
                 console.log(count);
                 if(count === 0){
                     document.getElementById("empty").classList.remove('hide');
+                }else{
+                    document.getElementById("empty").classList.add('hide');
                 }
             }
         }
