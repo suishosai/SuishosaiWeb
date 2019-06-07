@@ -1,6 +1,11 @@
 function onInputChange(){
     var value = document.getElementById("search-input").value;
-    if(value === "") return;
+    if(value === ""){
+        var els = document.querySelectorAll('.org-item');
+        for (const el of els) {
+            el.classList.remove("hide");
+        }
+    }
 
     postData(
         "https://suishosai-server-php.herokuapp.com/search.php",
@@ -15,6 +20,7 @@ function onInputChange(){
                 var els = document.querySelectorAll('.org-item');
                 for(const el of els){
                     var org = el.getAttribute("data-org");
+                    
                     if(orgs.includes(org)){
                         el.classList.remove("hide");
                     }else{
