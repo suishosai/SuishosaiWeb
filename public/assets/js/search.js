@@ -30,12 +30,13 @@ function onInputChange(){
                     if(orgs.includes(org)){
                         el.classList.remove("hide");
                         count ++;
+                        
                     }else{
                         el.classList.add("hide");
                     }
                 }
                 lazyestload();
-
+                console.log(count);
                 if(count === 0){
                     document.getElementById("empty").classList.remove('hide');
                 }
