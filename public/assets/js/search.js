@@ -10,9 +10,8 @@ function onInputChange(){
             var readyState = e.target.readyState;
             var response = e.target.responseText;
             if (status === 200 && readyState === 4) {
-                console.log(response);
                 
-                //console.log(JSON.parse(response));
+                console.log(JSON.parse(response));
             }
         }
     )
