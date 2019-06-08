@@ -7,15 +7,20 @@ window.onload = function (e) {
     f();
 };
 
+var destination = moment("2019-06-22 09:30:00");
+console.log(destination);
+console.log(moment());
+console.log(destination.diff(moment()));
+
+
+
 function f() {
-    var destination = new Date(2019, 5, 21, 0, 30, 0).valueOf();
-    var now = Date.now();
-    var _til = destination - now;
-    var til = new Date(_til);
-    var days = parseInt(_til / (1000 * 60 * 60 * 24));
-    var hours = til.getHours();
-    var minutes = til.getMinutes();
-    var seconds = til.getSeconds();
+    var now = moment();
+    var duration = moment.duration(destination.diff(now));
+    var days = Math.floor(duration.asDays());
+    var hours = duration.hours();
+    var minutes = duration.minutes();
+    var seconds = duration.seconds();
 
     var d = ('0' + days).slice(-2);
     var h = ('0' + hours).slice(-2);
