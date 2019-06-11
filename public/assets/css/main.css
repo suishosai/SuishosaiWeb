@@ -4855,3 +4855,38 @@ input[type="search"], input[type="search"]:focus {
 .hide {
 	display: none;
 }
+
+.col-head-type1 {
+  border-collapse: collapse;
+  width: 100%;
+}
+ 
+.col-head-type1 th,
+.col-head-type1 td {
+  border: 1px solid #dbe1e8;  
+  padding: 8px;
+}
+ 
+.col-head-type1 th {
+  background: #f9fafc;
+  text-align: left;
+  width: 240px;
+}
+ 
+@media only screen and (max-width: 800px) {
+  .col-head-type1 tr,
+  .col-head-type1 th,
+  .col-head-type1 td {
+    display: block;
+    width: auto;
+  }
+  
+  .col-head-type1 tr:first-child {
+    border-top: 1px solid #dbe1e8;  
+  }
+  
+  .col-head-type1 th,
+  .col-head-type1 td {
+    border-top: none;
+  }
+}
