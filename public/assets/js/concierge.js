@@ -123,7 +123,7 @@ function sendMessage(){
         createMessage(textarea.value, SPEAKER_USER);
 
         var query = encodeURI(textarea.value);
-        var url = "https://suishosai-server-php.herokuapp.com/redirect3.php";
+        var url = "https://suishosai-server-php.herokuapp.com/concierge.php";
         postData(url, createRequest("query", query), function(e){
             var status = e.target.status;
             var readyState = e.target.readyState;
