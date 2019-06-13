@@ -46,3 +46,24 @@ function onInputChange(){
         }
     )
 }
+var zoomed = false;
+
+function zoom(n){
+    if(n === -1 && zoomed){
+        zoomed = false;
+        _zoom(zoomed)
+    } else if (n === 1 && !zoomed){
+        zoomed = true;
+        _zoom(zoomed)
+    }
+}
+
+function _zoom(b){
+    var els = document.querySelectorAll('.org-item');
+    var prev = b ? "col-4" : "col-6";
+    var after = b ? "col-6" : "col-4";
+    for (const el of els) {
+        el.classList.remove(prev);
+        el.classList.add(after);
+    }
+}
