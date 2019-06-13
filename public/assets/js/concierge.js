@@ -230,3 +230,16 @@ window.addEventListener('beforeinstallprompt', (e) => {
             deferredPrompt = null;
         });
 });
+
+function vote(org, type){
+    if(org[0] == "O"){
+        alert("総合案内所に投票ありがとうございます。ただ、総合案内所には投票できませんごめんなさい。")
+        return;
+    }else{
+        var url = 'https://suishosai.netlify.com/vote.html?org="A"&type=B';
+        url = url.replace("A", org).replace("B", type);
+        if(confirm("本当に投票してもよろしいですか？")){
+            location.href = url;
+        }
+    }
+}

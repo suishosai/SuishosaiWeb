@@ -4872,6 +4872,27 @@ input[type="search"], input[type="search"]:focus {
   text-align: left;
   width: 240px;
 }
+
+.vote-btns{
+	width: 100%;
+}
+.vote-btns > *{
+	width: 30.0%;
+	margin-left: 5.0%;
+}
+.vote-btns > *:first-child{
+	margin-left: 0.0%;
+}
+
+@media screen and (max-width: 800px){
+	.vote-btns > *{
+		width: 100%;
+		margin-left: 0.0%;
+	}
+	.vote-btns > *:first-child{
+		margin-left: 0.0%;
+	}
+}
  
 @media only screen and (max-width: 800px) {
   .col-head-type1 tr,
