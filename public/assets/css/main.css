@@ -2567,6 +2567,9 @@ input, select, textarea {
 		.icon > .label {
 			display: none;
 		}
+	.fa-5x{
+		font-size: 5em;
+	}
 
 /* Image */
 
