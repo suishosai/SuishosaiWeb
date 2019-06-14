@@ -169,13 +169,19 @@ function createMessage(msg, speaker, isInit) {
     message = msg_balloon.replace("{MESSAGE}", msg);
     if(isInit) message = message.replace("image", "<img src='https://suishosai.netlify.com/images/concierge.png'>")
     else message = message.replace("image", "")
+
     var chat = document.getElementById("concierge-chat");
     chat.insertAdjacentHTML('beforeend', message)
     chat.scrollTop = chat.scrollHeight;
     if(!isInit){
         var nodes = chat.querySelectorAll('.faceicon');
         
-        let clone = nodes[0].children[0].cloneNode(true);
+        let clone = document.importNode(nodes[0].children[0], true)
+
+        if(nodes.length === 1){
+            return;
+        }
+        
         
         nodes[nodes.length - 1].appendChild(clone);
     }
