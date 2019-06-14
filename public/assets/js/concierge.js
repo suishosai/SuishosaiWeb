@@ -177,13 +177,9 @@ function createMessage(msg, speaker, isInit) {
         var nodes = chat.querySelectorAll('.faceicon');
         
         let clone = document.importNode(nodes[0].children[0], true)
-
-        if(nodes.length === 1){
-            return;
+        if (nodes[nodes.length - 1].children.length == 0){
+            nodes[nodes.length - 1].appendChild(clone);
         }
-        
-        
-        nodes[nodes.length - 1].appendChild(clone);
     }
     
 }
