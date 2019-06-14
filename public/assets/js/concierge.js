@@ -33,7 +33,7 @@ const SPEAKER_USER = 1;
 const SPEAKER_CONCIERGE_BALLOON = `
     <div class="balloon6">
         <div class="faceicon">
-            <img src="${Settings.concierge_img_url}">
+            image
         </div>
         <div class="chatting">
             <div class="says">
@@ -102,7 +102,7 @@ function initConcierge() {
         sendMessage();
     })
 
-    createMessage(Settings.init_message, SPEAKER_CONCIERGE);
+    createMessage(Settings.init_message, SPEAKER_CONCIERGE, true);
 }
 
 function triggerChatBox() {
@@ -120,7 +120,7 @@ function triggerChatBox() {
 function sendMessage(){
     let textarea = document.getElementById("concierge-input");
     if (!(textarea.value.startsWith("\n") || textarea.value === "")) {
-        createMessage(textarea.value, SPEAKER_USER);
+        createMessage(textarea.value, SPEAKER_USER, false);
 
         var query = encodeURI(textarea.value);
         var url = "https://suishosai-server-php.herokuapp.com/concierge.php";
@@ -131,17 +131,25 @@ function sendMessage(){
             if (status === 200 && readyState === 4) {
                 
                 var data = JSON.parse(response);
-                
-                for (var i = 0; i < data.length; i++) {
-                    for (var j = 0; j < concierge_callbacks.length; j++) {
-                        concierge_callbacks[j](data[i]);
-                    }
-                    createMessage(data[i], SPEAKER_CONCIERGE);
-                }
+                replyMessage(data, 0);
             }
         });
     }
     textarea.value = "";
+}
+
+function replyMessage(data, index){
+    if(index === data.length){
+        return;
+    }
+    for (var j = 0; j < concierge_callbacks.length; j++) {
+        concierge_callbacks[j](data[index]);
+    }
+    createMessage(data[index], SPEAKER_CONCIERGE, false);
+    index ++;
+    setTimeout(function(){
+        replyMessage(data, index)
+    }, 800);
 }
 
 /**
@@ -151,7 +159,7 @@ function sendMessage(){
  * 
  * @return message object
  */
-function createMessage(msg, speaker) {
+function createMessage(msg, speaker, isInit) {
     var msg_balloon = "";
     var message = "";
 
@@ -159,11 +167,19 @@ function createMessage(msg, speaker) {
     if (speaker === SPEAKER_USER) msg_balloon = SPEAKER_USER_BALLOON;
 
     message = msg_balloon.replace("{MESSAGE}", msg);
+    if(isInit) message = message.replace("image", "<img src='https://suishosai.netlify.com/images/concierge.png'>")
+    else message = message.replace("image", "")
     var chat = document.getElementById("concierge-chat");
-    chat.innerHTML += message;
-
-    var chat_el = document.getElementById("concierge-chat");
-    chat_el.scrollTop = chat_el.scrollHeight;
+    chat.insertAdjacentHTML('beforeend', message)
+    chat.scrollTop = chat.scrollHeight;
+    if(!isInit){
+        var nodes = chat.querySelectorAll('.faceicon');
+        
+        let clone = nodes[0].children[0].cloneNode(true);
+        
+        nodes[nodes.length - 1].appendChild(clone);
+    }
+    
 }
 
 function closest(el, selector) {

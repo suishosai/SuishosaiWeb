@@ -108,6 +108,7 @@ LINE stamp
   width: 100%;
   margin: 10px 10px;
   overflow: hidden;
+  
 }
 
 .balloon6 .faceicon {
@@ -137,6 +138,9 @@ LINE stamp
   border-radius: 12px;
   background: #edf1ee;
   word-wrap: break-word;
+  animation-fill-mode: both;
+  animation-duration: 0.5s;
+  animation-name: fadeInSlide;
 }
 
 .says:after {
@@ -234,4 +238,23 @@ LINE stamp
     width: 100px;
     height: 80px;
     top: 0px;
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+  }
+  50% {
+    opacity: 0;
+    height: 6em;
+    transform: translateX(-20px);
+    visibility: visible !important;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+    visibility: visible !important;
+  }
 }
