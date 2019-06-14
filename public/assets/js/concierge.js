@@ -150,7 +150,7 @@ function _encodeURI(val){
         "８" : "8", "八" : "8",
         "９" : "9", "九" : "9",
         "０" : "0", "零" : "0",
-        "年" : "-", "組" : ""
+        "年" : "-", "組" : "あ"
     };
 
     var str = "";
@@ -158,11 +158,14 @@ function _encodeURI(val){
 
     val.split("").forEach(x => {
         if(dict_dict[x]){
-            str += dict_dict[x];
+            str += dict_dict[x] === "あ" ? "" : dict_dict[x];
         }else{
             str += x;
         }
     })
+
+    console.log(str);
+    
 
     
     return encodeURI(str);
