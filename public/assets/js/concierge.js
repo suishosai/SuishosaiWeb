@@ -190,6 +190,7 @@ function replyMessage(data, index){
  * 
  * @return message object
  */
+var last = 0;
 function createMessage(msg, speaker, isInit) {
     var msg_balloon = "";
     var message = "";
@@ -203,13 +204,20 @@ function createMessage(msg, speaker, isInit) {
 
     var chat = document.getElementById("concierge-chat");
     chat.insertAdjacentHTML('beforeend', message)
-    chat.scrollTop = chat.scrollHeight;
+    
+    if ((chat.offsetHeight + chat.scrollTop) / chat.scrollHeight > 0.8 || last == 0)
+        chat.scrollTop = chat.scrollHeight
+    
     if(!isInit){
         var nodes = chat.querySelectorAll('.faceicon');
         
         let clone = document.importNode(nodes[0].children[0], true)
         if (nodes[nodes.length - 1].children.length == 0){
             nodes[nodes.length - 1].appendChild(clone);
+        }
+
+        if (nodes.length > 3){
+            last = 1;
         }
     }
     
