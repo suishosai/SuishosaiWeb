@@ -12,6 +12,7 @@
 	<link rel="shortcut icon" href="../images/favicon.ico" />
 	<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="stylesheet" href="../assets/css/concierge.css" />
+	<link rel="stylesheet" href="../assets/css/iziModal.min.css">
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 </head>
@@ -46,10 +47,29 @@
 				<section class="post intro" style="border-top: 0;">
 		      	<h1 style="border-top: 0;">いっちゃん総本店<h3 id="right" style="border-top: 0; width:100%;">構成団体:2-9/場所:屋台村</h3></h1>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/A-6.png" alt="いっちゃん総本店" /></span>本格的な広島のお好み焼きをお届けします！味に一番の自信アリ！翠翔祭グランプリを目指す我々の本気をご覧下さい！店名は、広島の名店みっちゃんと、２－９の担任である石澤先生のい″をかけて名付けました。</p>
-				<span class="vote-btns"><button onclick="vote('A-6', 4)">総合部門で投票する</button><button onclick="vote('A-6', 3)">看板部門で投票する</button><button onclick="vote('A-6', 1)">調理食販部門で投票する</button></span>
+				<span class="vote-btns"><button onclick="vote('A-6', 4)">総合部門で投票する</button><button onclick="vote('A-6', 3)">看板部門で投票する</button><button onclick="vote('A-6', 1)">調理食販部門で投票する</button><br><a id="showModal">翠翔祭グランプリとは？</a></span>
 				<h2><br>MENU</h2><table class='col-head-type1'><tr><th>広島風お好み焼き</th><td>200翠円</td></tr></table>
 				
 				</section>
+
+				<!-- Modal structure -->
+				<div id="modal" data-iziModal-fullscreen="true"  data-iziModal-title="翠翔祭グランプリとは"  data-iziModal-subtitle="簡単なご紹介"  data-iziModal-icon="icon-home">
+					<!-- [3] -->
+					<div style=" position: relative; left: 5%; width: 90%;">
+						<header>
+							<br>
+							<h2 id="modal-1-title">
+								翠翔祭グランプリとは
+							</h2>
+						</header>
+					
+						<div id="modal-1-content">
+							<p>翠翔祭グランプリは団体ごとにお客様からのポイント<sup>*1</sup>を集めるグランプリです。優勝した団体には賞状とトロフィーが贈呈されます。あなたの一票で結果が大きく変わります。是非投票してください！</p>
+							<p style="size: 0.6em;">*1 ポイント...一人が部門ごとに100ポイントを持っていて、投票した団体に均等に割り振ります。例えば、４団体に投票すると各団体に２５点が加算されます。</p>
+						</div>
+					
+					</div>
+				</div>
 
 			</div>
 			<style>
@@ -117,6 +137,7 @@
 	<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/main.js"></script>
 	<script src="../assets/js/concierge.js"></script>
+	<script src="../assets/js/iziModal.min.js" type="text/javascript"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142064335-1"></script>
 	<script>
@@ -125,6 +146,15 @@
 		gtag('js', new Date());
 
 		gtag('config', 'UA-142064335-1');
+	</script>
+	<script>
+		$("#modal").iziModal();
+		$(document).on('click', '#showModal', function (event) {
+			event.preventDefault();
+			// $('#modal').iziModal('setZindex', 99999);
+			// $('#modal').iziModal('open', { zindex: 99999 });
+			$('#modal').iziModal('open');
+		});
 	</script>
 
 </body>

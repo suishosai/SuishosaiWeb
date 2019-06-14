@@ -4886,10 +4886,16 @@ input[type="search"], input[type="search"]:focus {
 .vote-btns > *:first-child{
 	margin-left: 0.0%;
 }
+.vote-btns > *:last-child{
+	margin-left: 0.0%;
+}
 
 @media screen and (max-width: 800px){
 	.vote-btns > *{
 		width: 100%;
+		margin-left: 0.0%;
+	}
+	.vote-btns > *:first-child{
 		margin-left: 0.0%;
 	}
 	.vote-btns > *:first-child{
