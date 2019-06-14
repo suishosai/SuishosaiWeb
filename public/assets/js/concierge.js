@@ -163,8 +163,6 @@ function _encodeURI(val){
             str += x;
         }
     })
-
-    console.log(str);
     
 
     
