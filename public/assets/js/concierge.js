@@ -122,7 +122,7 @@ function sendMessage(){
     if (!(textarea.value.startsWith("\n") || textarea.value === "")) {
         createMessage(textarea.value, SPEAKER_USER, false);
 
-        var query = encodeURI(textarea.value);
+        var query = _encodeURI(textarea.value);
         var url = "https://suishosai-server-php.herokuapp.com/concierge.php";
         postData(url, createRequest("query", query), function(e){
             var status = e.target.status;
@@ -136,6 +136,36 @@ function sendMessage(){
         });
     }
     textarea.value = "";
+}
+
+function _encodeURI(val){
+    var dict_dict = {
+        "１" : "1", "一" : "1",
+        "２" : "2", "二" : "2",
+        "３" : "3", "三" : "3",
+        "４" : "4", "四" : "4",
+        "５" : "5", "五" : "5",
+        "６" : "6", "六" : "6",
+        "７" : "7", "七" : "7",
+        "８" : "8", "八" : "8",
+        "９" : "9", "九" : "9",
+        "０" : "0", "零" : "0",
+        "年" : "-", "組" : ""
+    };
+
+    var str = "";
+    
+
+    val.split("").forEach(x => {
+        if(dict_dict[x]){
+            str += dict_dict[x];
+        }else{
+            str += x;
+        }
+    })
+
+    
+    return encodeURI(str);
 }
 
 function replyMessage(data, index){
