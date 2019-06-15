@@ -8,9 +8,6 @@ window.onload = function (e) {
 };
 
 var destination = moment("2019-06-22 09:30:00");
-console.log(destination);
-console.log(moment());
-console.log(destination.diff(moment()));
 
 
 

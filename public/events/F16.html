@@ -45,7 +45,9 @@
 		  <div id="main">
 
 				<section class="post intro" style="border-top: 0;">
-		      	<h1 style="border-top: 0;">ミリオンGo！<h3 id="right" style="border-top: 0; width:100%;">構成団体:陸上部/場所:2棟3階 2年4組教室</h3></h1>
+				  <h1 style="border-top: 0;">ミリオンGo！<h3 id="right" style="border-top: 0; width:100%;">構成団体:陸上部/場所:2棟3階 2年4組教室</h3></h1>
+				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/F-16.png" alt="ミリオンGo！" /></span>君は緊張の限界を知っているか…？スプーンにピンポン玉を乗せて、ゴールまで運べ！集中を切らした瞬間、君を待ちうけるものは？極限の緊張からもたらされる快感を、あなたも体験しよう。今すぐ教室へGO！</p>
 				
 				<h3>投票ボタン</h3>
@@ -158,6 +160,56 @@
 			// $('#modal').iziModal('open', { zindex: 99999 });
 			$('#modal').iziModal('open');
 		});
+	</script>
+	<script src="../assets/js/moment.min.js"></script>
+	<script>
+		function checkStatus() {
+			var success_template = '<div class="isa_success"><i class="fa fa-info"></i>MESSAGE</div>';
+			var warn_template = '<div class="isa_error"><i class="fa fa-warning"></i>MESSAGE</div>';
+
+			var start1 = moment("2019-06-22 09:30:00");
+			var end1 = moment("2019-06-22 16:00:00");
+			var start2 = moment("2019-06-23 09:30:00");
+			var end2 = moment("2019-06-23 15:30:00");
+
+			if (isBetween(start1, end1) || isBetween(start2, end2)) {
+				var url = "https://suishosai-server-php.herokuapp.com/getStatus.php";
+				var request = new XMLHttpRequest();
+				request.open('GET', url);
+				request.onreadystatechange = function () {
+					if (request.readyState != 4) {
+						// リクエスト中
+					} else if (request.status != 200) {
+						// 失敗
+					} else {
+						var result = request.responseText;
+						json = JSON.parse(result);
+						if (json["F-16"]) {
+							var status = json["F-16"]["status"];
+							var reason = json["F-16"]["reason"];
+
+							if (status === "on") {
+								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
+							} else {
+								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
+							}
+						} else {
+							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
+						}
+					}
+				};
+				request.send(null);
+			} else {
+				document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", "時間外です");
+			}
+		}
+
+		function isBetween(start, end) {
+			var now = moment();
+			return start.diff(now) * end.diff(now) <= 0
+		}
+
+		checkStatus();
 	</script>
 
 </body>

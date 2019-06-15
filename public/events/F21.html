@@ -45,7 +45,9 @@
 		  <div id="main">
 
 				<section class="post intro" style="border-top: 0;">
-		      	<h1 style="border-top: 0;">翠和会<h3 id="right" style="border-top: 0; width:100%;">構成団体:翠和会/場所:2棟1階 翠翔みらい館B</h3></h1>
+				  <h1 style="border-top: 0;">翠和会<h3 id="right" style="border-top: 0; width:100%;">構成団体:翠和会/場所:2棟1階 翠翔みらい館B</h3></h1>
+				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/F-21.png" alt="翠和会" /></span>無料休憩所「翠和会茶房」にて冷たいお茶を用意しています。無料なのでお気軽にお立ち寄りください。毎年ご好評いただいているオリジナルグッズの販売も☺翠翔祭の記念に、お土産にいかがでしょう。</p>
 				
 				<h3>投票ボタン</h3>
@@ -158,6 +160,56 @@
 			// $('#modal').iziModal('open', { zindex: 99999 });
 			$('#modal').iziModal('open');
 		});
+	</script>
+	<script src="../assets/js/moment.min.js"></script>
+	<script>
+		function checkStatus() {
+			var success_template = '<div class="isa_success"><i class="fa fa-info"></i>MESSAGE</div>';
+			var warn_template = '<div class="isa_error"><i class="fa fa-warning"></i>MESSAGE</div>';
+
+			var start1 = moment("2019-06-22 09:30:00");
+			var end1 = moment("2019-06-22 16:00:00");
+			var start2 = moment("2019-06-23 09:30:00");
+			var end2 = moment("2019-06-23 15:30:00");
+
+			if (isBetween(start1, end1) || isBetween(start2, end2)) {
+				var url = "https://suishosai-server-php.herokuapp.com/getStatus.php";
+				var request = new XMLHttpRequest();
+				request.open('GET', url);
+				request.onreadystatechange = function () {
+					if (request.readyState != 4) {
+						// リクエスト中
+					} else if (request.status != 200) {
+						// 失敗
+					} else {
+						var result = request.responseText;
+						json = JSON.parse(result);
+						if (json["F-21"]) {
+							var status = json["F-21"]["status"];
+							var reason = json["F-21"]["reason"];
+
+							if (status === "on") {
+								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
+							} else {
+								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
+							}
+						} else {
+							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
+						}
+					}
+				};
+				request.send(null);
+			} else {
+				document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", "時間外です");
+			}
+		}
+
+		function isBetween(start, end) {
+			var now = moment();
+			return start.diff(now) * end.diff(now) <= 0
+		}
+
+		checkStatus();
 	</script>
 
 </body>
