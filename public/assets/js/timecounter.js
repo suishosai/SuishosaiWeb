@@ -14,6 +14,11 @@ var destination = moment("2019-06-22 09:30:00");
 function f() {
     var now = moment();
     var duration = moment.duration(destination.diff(now));
+
+    if (destination.diff(now) < 0){
+        document.getElementById("timecounter").hidden = true;
+        return;
+    }
     var days = Math.floor(duration.asDays());
     var hours = duration.hours();
     var minutes = duration.minutes();
