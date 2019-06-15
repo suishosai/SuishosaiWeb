@@ -1,7 +1,16 @@
+var last = "unknown"
+var recommending = false;
+
 function onInputChange(){
     var value = document.getElementById("search-input").value;
     
     if(value === ""){
+        
+        if (recommending) {
+            
+            recommend(last, true);
+            return;
+        }
         
         var els = document.querySelectorAll('.org-item');
         for (const el of els) {
@@ -80,20 +89,21 @@ function _encodeURI(val) {
     return encodeURI(str);
 }
 
-var last = "unknown"
 
-function recommend(val){
+function recommend(val, opt = false){
     var els = document.querySelectorAll('.org-item');
     for (const el of els) {
         var org = el.getAttribute("data-org");
-        if (val === last) el.classList.remove("hide");
+        if (val === last && !opt) el.classList.remove("hide");
         else el.classList.add("hide");
     }
     
-    if (val === last){
+    if (val === last && !opt){
+        recommending = false;
         last = "unknown";
         return;
     }
+
     for (const el of els) {
         var org = el.getAttribute("data-org");
         val.split("").forEach(x => {
@@ -114,6 +124,7 @@ function recommend(val){
 
     last = val;
     lazyestload();
+    recommending = true;
 }
 var zoomed = false;
 
