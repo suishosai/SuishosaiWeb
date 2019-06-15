@@ -4890,10 +4890,11 @@ input[type="search"], input[type="search"]:focus {
 	margin-left: 0.0%;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 980px){
 	.vote-btns > *{
 		width: 100%;
 		margin-left: 0.0%;
+		margin-bottom: 10px;
 	}
 	.vote-btns > *:first-child{
 		margin-left: 0.0%;
@@ -4942,4 +4943,19 @@ input[type="search"], input[type="search"]:focus {
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
+}
+
+/* スマホ　767px以下 */
+@media only screen and (max-width: 767px){
+  #poster-image{
+    width: 100%;
+    height: auto;
+  }
+}
+/* pc　768px以上 */
+@media only screen and (min-width: 768px), print {
+  #poster-image{
+    width: 80%;
+    height: auto;
+  }
 }
