@@ -41,33 +41,52 @@
 
 		<!-- Main -->
 		<div id="main">
-			<h2>企画一覧</h2>
 			<style>
 				h2 {
 					text-align: center;
 				}
 			</style>
-			<label class="search">
-				<div class="kensaku-margin">
-					<div class="one">
-						<div class="two">
-							<div class="three">
-								<input id="search-input" type="search" class="four" placeholder="検索ワード 例: ２階" oninput="onInputChange()"/>
+			<div>
+				<label class="search">
+					<div class="kensaku-margin">
+						<div class="one">
+							<div class="two">
+								<div class="three">
+									<input id="search-input" type="search" class="four" placeholder="検索ワード 例: ２階" oninput="onInputChange()"/>
+								</div>
+								<div class="stick"></div>
 							</div>
-							<div class="stick"></div>
 						</div>
 					</div>
+				</label>
+				<div>
+					<h3>おすすめキーワード</h3>
+					<h4>	
+						<a onclick="recommend('AT')">調理</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('B')">食販</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('C')">物品販売</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('E')">有料娯楽</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('F')">無料娯楽</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('G')">迷路・お化け屋敷</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('H')">展示</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('I')">演劇</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('J')">音楽</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('K')">藤棚</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('L')">体育館ステージ</a>&nbsp;&verbar;&nbsp;
+						<a onclick="recommend('TU')">定時</a>
+					</h4>
+					<div style="text-align: center;"><button style="position: relative; right:10px;" onclick="zoom(-1)">縮小<i
+								class="fa fa-search-minus"></i></button><button style="position: relative; left:10px;"
+							onclick="zoom(1)">拡大<i class="fa fa-search-plus"></i></button></div>
 				</div>
-
-			</label>
+			</div>
 			<style>
 				.kensaku-margin {
 					margin: 15px;
 				}
 			</style>
 			<div class="box alt">
-				<div style="text-align: center;"><button style="position: relative; right:10px;" onclick="zoom(-1)">縮小<i class="fa fa-search-minus"></i></button><button style="position: relative; left:10px;" onclick="zoom(1)">拡大<i class="fa fa-search-plus"></i></button></div>
-				<br>
+				<h2>企画一覧</h2>
 				<div class="row gtr-50 gtr-uniform" id="items">
 					<div class="col-4 org-item" data-org="A-1"><span class="image fit"><a href="events/A1.html"><img
 									src="images/small/A-1.png" class="eventhover lazyestload" alt="鶏林 ～マジチキオオバヤシ～"

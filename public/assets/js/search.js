@@ -79,6 +79,42 @@ function _encodeURI(val) {
 
     return encodeURI(str);
 }
+
+var last = "unknown"
+
+function recommend(val){
+    var els = document.querySelectorAll('.org-item');
+    for (const el of els) {
+        var org = el.getAttribute("data-org");
+        if (val === last) el.classList.remove("hide");
+        else el.classList.add("hide");
+    }
+    
+    if (val === last){
+        last = "unknown";
+        return;
+    }
+    for (const el of els) {
+        var org = el.getAttribute("data-org");
+        val.split("").forEach(x => {
+            if (x == "K" && org == "K-12"){
+                return;
+            }
+
+            if (x == "L" && org == "K-12"){
+                el.classList.remove("hide");
+            }
+
+            if (org.includes(x)) {
+                el.classList.remove("hide");
+                return;
+            }
+        })
+    }
+
+    last = val;
+    lazyestload();
+}
 var zoomed = false;
 
 function zoom(n){
