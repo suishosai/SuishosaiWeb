@@ -191,11 +191,10 @@ LINE stamp
 
 #concierge-input{
     resize: none;
-    width: calc(100% - 4px);
+    width: calc(100%);
     height: calc(80%);
     position: absolute;
     bottom: 0px;
-    left: -1px;
     font-size: 1.3em;
     z-index: 1000;
 }
@@ -230,14 +229,6 @@ LINE stamp
     .says {
         max-width: 250px;
     }
-}
-
-.gyoza-img{
-    z-index:10000;
-    position: fixed;
-    width: 100px;
-    height: 80px;
-    top: 0px;
 }
 
 @keyframes fadeInSlide {
