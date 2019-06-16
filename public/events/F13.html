@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">招待試合<h3 id="right" style="border-top: 0; width:100%;">構成団体:サッカー部/場所:校庭</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/F-13.png" alt="招待試合" /></span>文化祭といえば招待試合、招待試合といえば文化祭‼どうも、サッカー部です!毎年大好評の招待試合が今年も翠嵐グラウンドにて行われます!ぜひ見に来てください!</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["F-13"]["status"];
 							var reason = json["F-13"]["reason"];
 
+							var lastUpdate = json["F-13"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">シンジて撃て！<h3 id="right" style="border-top: 0; width:100%;">構成団体:3-1/場所:2棟1階 3年4組教室</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/F-5.png" alt="シンジて撃て！" /></span>教室のドアを開くと、ヘンな世界が広がっていた？！迫り来る敵を打ち倒す、３次元シューティングゲーム！！――自分をシンジて</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["F-5"]["status"];
 							var reason = json["F-5"]["reason"];
 
+							var lastUpdate = json["F-5"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

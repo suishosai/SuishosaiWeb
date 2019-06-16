@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">Me too eat CHURROS<h3 id="right" style="border-top: 0; width:100%;">構成団体:3-4/場所:2棟2階 3年1組教室</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/B-5.png" alt="Me too eat CHURROS" /></span>チュロスの本場・鎌倉の超人気店「KAMAKURA CHURROUS」の味をそのまま楽しめます！内装にもこだわったので是非みにきてください。</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["B-5"]["status"];
 							var reason = json["B-5"]["reason"];
 
+							var lastUpdate = json["B-5"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

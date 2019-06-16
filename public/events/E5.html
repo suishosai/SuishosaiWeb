@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">菜摘王の称号を目指せ！<h3 id="right" style="border-top: 0; width:100%;">構成団体:バドミントン部/場所:藤棚</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/E-5.png" alt="菜摘王の称号を目指せ！" /></span>こんにちは！バドミントン部です！的を狙ってシャトルを投げ、高得点を目指そう！参加賞もあるよ！安価に遊べるので気軽に来てね！まってまーす！</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["E-5"]["status"];
 							var reason = json["E-5"]["reason"];
 
+							var lastUpdate = json["E-5"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">CATS<h3 id="right" style="border-top: 0; width:100%;">構成団体:2-8/場所:2棟1階 3年6組教室</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/B-3.png" alt="CATS" /></span>文化祭ではめったにお目にかかれない猫カフェ。普段行きたいけどお金が…、そんな人は是非来てください！もちろん地域最安値です。最高に冷えたクレープでインスタ映えも狙っちゃいましょう!!</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["B-3"]["status"];
 							var reason = json["B-3"]["reason"];
 
+							var lastUpdate = json["B-3"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

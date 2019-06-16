@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">投げ処　TAKASHI<h3 id="right" style="border-top: 0; width:100%;">構成団体:1-9/場所:2棟4階 1年6組教室</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/F-3.png" alt="投げ処　TAKASHI" /></span>あなたは本物の枕投げを知っているか。高度なかけひき、あふれでる知性で相手を圧倒せよ。どうでもいいことに情熱を注いだあの頃を思い出せ。来たれ、挑戦者。</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["F-3"]["status"];
 							var reason = json["F-3"]["reason"];
 
+							var lastUpdate = json["F-3"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

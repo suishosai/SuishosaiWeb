@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">国際交流委員会<h3 id="right" style="border-top: 0; width:100%;">構成団体:国交委員/場所:2棟2階 3年3組教室</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/H-4.png" alt="国際交流委員会" /></span>国際交流委員会で行った活動の報告と紹介を掲示式で行います。また、姉妹校のルーズベルト高校に訪問した際の写真を展示し、紹介します。来校者向けに質疑応答も行うので、気軽に見に来てください。</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["H-4"]["status"];
 							var reason = json["H-4"]["reason"];
 
+							var lastUpdate = json["H-4"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">Change the World～科学部～<h3 id="right" style="border-top: 0; width:100%;">構成団体:科学部/場所:3棟1階 化学室</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/H-1.png" alt="Change the World～科学部～" /></span>科学部ではレゴや分子のゲーム、１年生のピタゴラスイッチ、今までの活動での製作物の展示や面白い実験をやります。理科に興味がある人もない人も是非化学室に来て、理科の楽しさを体感しましょう。</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["H-1"]["status"];
 							var reason = json["H-1"]["reason"];
 
+							var lastUpdate = json["H-1"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

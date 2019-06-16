@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">VSi嵐<h3 id="right" style="border-top: 0; width:100%;">構成団体:1-4/場所:2棟3階 2年3組教室</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/F-1.png" alt="VSi嵐" /></span>横浜翠嵐高校に、V◯嵐のセットが出現!?一回挑戦してみたかったアレが、1年4組の教室で再現されています。ボールを蹴って標的を倒し、高得点をとろう！翠嵐クオリティのキッ◯ングスナイパーをご提供します！</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["F-1"]["status"];
 							var reason = json["F-1"]["reason"];
 
+							var lastUpdate = json["F-1"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

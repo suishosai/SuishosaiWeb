@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">吉吉神社<h3 id="right" style="border-top: 0; width:100%;">構成団体:1-6/場所:2棟2階 2年9組教室</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/E-3.png" alt="吉吉神社" /></span>昔々、横浜の高台に２人の神様がいました。名を吉水神、吉川神といいます。そして、人々は学力の向上を祈願して、学力の神様である２人を祀ることにしたのでした．．．(ただの縁日です)</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["E-3"]["status"];
 							var reason = json["E-3"]["reason"];
 
+							var lastUpdate = json["E-3"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

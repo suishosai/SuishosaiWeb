@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">ストラックアウト<h3 id="right" style="border-top: 0; width:100%;">構成団体:男女硬式テニス部/場所:プール前</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/F-12.png" alt="ストラックアウト" /></span>男女硬式テニス部のストラックアウトです。参加するとお菓子がもらえるかも!?校舎三棟のプール横です。君もエースをねらえ！ボールを投げて日頃のストレスを発散しちゃいましょう（笑）ぜひ来てください。</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["F-12"]["status"];
 							var reason = json["F-12"]["reason"];
 
+							var lastUpdate = json["F-12"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}

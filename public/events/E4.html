@@ -46,7 +46,7 @@
 
 				<section class="post intro" style="border-top: 0;">
 				  <h1 style="border-top: 0;">ゴキげんよう<h3 id="right" style="border-top: 0; width:100%;">構成団体:ハンドボール部/場所:2棟2階 3年1組教室</h3></h1>
-				<h4 style="margin-bottom: 0;">運営情報</h4>
+				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
 				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/E-4.png" alt="ゴキげんよう" /></span>勉強、家事、仕事、人間関係・・・ストレスに耐えながら生きる現代人よ。今こそ立ち上がり、水風船を持て。たまりにたまったストレスをゴキブリ(部員)にぶつけるのだ！</p>
 				
@@ -188,12 +188,17 @@
 							var status = json["E-4"]["status"];
 							var reason = json["E-4"]["reason"];
 
+							var lastUpdate = json["E-4"]["lastUpdate"];
+
+							document.getElementById("lastUpdate").textContent = "最終更新: " + lastUpdate;
+
 							if (status === "on") {
 								document.getElementById("info").innerHTML = success_template.replace("MESSAGE", reason);
 							} else {
 								document.getElementById("info").innerHTML = warn_template.replace("MESSAGE", reason);
 							}
 						} else {
+							document.getElementById("lastUpdate").hidden = true;
 							document.getElementById("info").innerHTML = success_template.replace("MESSAGE", "運営中");
 						}
 					}
