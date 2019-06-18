@@ -42,60 +42,67 @@
 		</nav>
 
 		<!-- Main -->
-		  <div id="main">
+		<div id="main">
 
-				<section class="post intro" style="border-top: 0;">
-				  <h1 style="border-top: 0;">ふしぎな短編演劇<h3 id="right" style="border-top: 0; width:100%;">構成団体:演劇部/場所:2棟3階 1年9組教室</h3></h1>
+			<section class="post intro" style="border-top: 0;">
+				<h1 style="border-top: 0;">ふしぎな短編演劇<h3 id="right" style="border-top: 0; width:100%;">構成団体:演劇部/場所:2棟3階 1年9組教室</h3></h1>
 				<h4 style="margin-bottom: 0; width: 100%;">運営情報<h5 style="margin-bottom: 0;" id="lastUpdate"></h5></h4>
 				<div id="info"></div>
-				  <p><span class="image left"><img src="https://suishosai.netlify.com/images/big/I-2.png" alt="ふしぎな短編演劇" /></span>われわれ演劇部は、２０分前後の短編演劇を上映します。観劇が初めての人も是非ご気軽にお立寄りください。個性豊かな部員たちによる不思議で愉快な芝居をお届けします。さあ、貴方もワンダーランドへようこそ…</p>
-				
-				<h3>投票ボタン</h3>
-				  <span class="vote-btns"><button onclick="vote('I-2', 4)">総合部門で投票する</button><button onclick="vote('I-2', 2)">娯楽・展示部門で投票する</button><br><a id="showModal">翠翔祭グランプリとは？</a></span>
-				
-				
-				
-				</section>
+				<p><span class="image left"><img src="https://suishosai.netlify.com/images/big/I-2.png" alt="ふしぎな短編演劇" /></span>われわれ演劇部は、２０分前後の短編演劇を上映します。観劇が初めての人も是非ご気軽にお立寄りください。個性豊かな部員たちによる不思議で愉快な芝居をお届けします。さあ、貴方もワンダーランドへようこそ…</p>
 
-				<!-- Modal structure -->
-				<div id="modal" data-iziModal-fullscreen="true"  data-iziModal-title="翠翔祭グランプリとは"  data-iziModal-subtitle="簡単なご紹介"  data-iziModal-icon="icon-home">
-					<!-- [3] -->
-					<div style=" position: relative; left: 5%; width: 90%;">
-						<header>
-							<br>
-							<h2 id="modal-1-title">
-								翠翔祭グランプリとは
-							</h2>
-						</header>
-					
-						<div id="modal-1-content">
-							<p>翠翔祭グランプリは団体ごとにお客様からのポイント<sup>*1</sup>を集めるグランプリです。優勝した団体には賞状など豪華景品が贈呈されます。あなたの一票で結果が大きく変わります。是非投票してください！</p>
-							<p style="size: 0.6em;">*1 ポイント...一人が部門ごとに100ポイントを持っていて、投票した団体に均等に割り振ります。例えば、４団体に投票すると各団体に２５点が加算されます。</p>
-						</div>
-					
+				<h3>投票ボタン</h3>
+				<span class="vote-btns"><button onclick="vote('I-2', 4)">総合部門で投票する</button><button onclick="vote('I-2', 2)">娯楽・展示部門で投票する</button><br><a id="showModal">翠翔祭グランプリとは？</a></span>
+
+				<h3 style="width: 100%; margin-top: 30px; margin-bottom: 30px;">タイムテーブル</h3>
+				<div class="box alt">
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-6-xlarge col-12-medium col-12-small"><span class="image fit"><img src="../images/engeki-timetable-day1.png" alt="" /></span></div>
+						<div class="col-6-xlarge col-12-medium col-12-small"><span class="image fit"><img src="../images/engeki-timetable-day2.png" alt="" /></span></div>
 					</div>
 				</div>
 
+			</section>
+
+			<!-- Modal structure -->
+			<div id="modal" data-iziModal-fullscreen="true" data-iziModal-title="翠翔祭グランプリとは" data-iziModal-subtitle="簡単なご紹介" data-iziModal-icon="icon-home">
+				<!-- [3] -->
+				<div style=" position: relative; left: 5%; width: 90%;">
+					<header>
+						<br>
+						<h2 id="modal-1-title">
+								翠翔祭グランプリとは
+							</h2>
+					</header>
+
+					<div id="modal-1-content">
+						<p>翠翔祭グランプリは団体ごとにお客様からのポイント<sup>*1</sup>を集めるグランプリです。優勝した団体には賞状など豪華景品が贈呈されます。あなたの一票で結果が大きく変わります。是非投票してください！</p>
+						<p style="size: 0.6em;">*1 ポイント...一人が部門ごとに100ポイントを持っていて、投票した団体に均等に割り振ります。例えば、４団体に投票すると各団体に２５点が加算されます。</p>
+					</div>
+
+				</div>
 			</div>
-			<style>
-				#right{
-					text-align: right;
-				}
-				.intro{
-					display: -moz-flex;
-					display: -webkit-flex;
-					display: -ms-flex;
-					display: flex;
-					-moz-flex-wrap: wrap;
-					-webkit-flex-wrap: wrap;
-					-ms-flex-wrap: wrap;
-					flex-wrap: wrap;
-					-moz-align-items: -moz-stretch;
-					-webkit-align-items: -webkit-stretch;
-					-ms-align-items: -ms-stretch;
-					align-items: stretch;
-				}
-			</style>
+
+		</div>
+		<style>
+			#right {
+				text-align: right;
+			}
+
+			.intro {
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-flex-wrap: wrap;
+				-webkit-flex-wrap: wrap;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+				-moz-align-items: -moz-stretch;
+				-webkit-align-items: -webkit-stretch;
+				-ms-align-items: -ms-stretch;
+				align-items: stretch;
+			}
+		</style>
 		<!-- Footer -->
 		<footer id="footer">
 			<section class="split contact">

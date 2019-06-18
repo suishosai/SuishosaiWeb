@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>【公式】翠翔祭2019 QR生成ページ</title>
+    <title>QR生成ページ |【公式】翠翔祭2019</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="shortcut icon" href="images/favicon.ico" />
@@ -37,10 +37,8 @@
                 <li><a href="access.html">アクセス</a></li>
             </ul>
             <ul class="icons">
-                <li><a href="https://twitter.com/suishosai0123" class="icon fa-twitter"><span
-                            class="label">Twitter</span></a></li>
-                <li><a href="https://www.instagram.com/suishousai2019" class="icon fa-instagram"><span
-                            class="label">Instagram</span></a></li>
+                <li><a href="https://twitter.com/suishosai0123" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.instagram.com/suishousai2019" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
             </ul>
         </nav>
 
@@ -64,21 +62,22 @@
                     <select id="org" class="select">
                         <option>団体名</option>
                     </select>
-                    <button id="create" onclick="onClick()"><p style="color: white;">作成</p></button>
+                    <button id="create" onclick="onClick()">
+                        <p style="color: white;">作成</p></button>
                     <div id="qrcode"></div>
                 </header>
             </section>
             <style>
-                .select{
+                .select {
                     width: 40%;
                 }
 
-                .major > button{
+                .major>button {
                     background: blue;
                 }
 
-                @media screen and (max-width: 980px){
-                    .select{
+                @media screen and (max-width: 980px) {
+                    .select {
                         width: 100%;
                     }
                 }
@@ -106,10 +105,8 @@
                 <section>
                     <h3>Social</h3>
                     <ul class="icons alt">
-                        <li><a href="https://twitter.com/suishosai0123" class="icon alt fa-twitter"><span
-                                    class="label">Twitter</span></a></li>
-                        <li><a href="https://www.instagram.com/suishousai2019" class="icon alt fa-instagram"><span
-                                    class="label">Instagram</span></a></li>
+                        <li><a href="https://twitter.com/suishosai0123" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="https://www.instagram.com/suishousai2019" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
                     </ul>
                 </section>
             </section>
@@ -139,12 +136,12 @@
     <script>
         var qrcode = new QRCode("qrcode");
         var DATA = {
-            "invalid":"",
-            "stage":"KL", 
-            "food":"ABT", 
-            "fun":"CEFGHIJ", 
-            "poster":"ABCEFGHIJKL", 
-            "all":"ABCDEFGHIJKLTU"
+            "invalid": "",
+            "stage": "KL",
+            "food": "ABT",
+            "fun": "CEFGHIJ",
+            "poster": "ABCEFGHIJKL",
+            "all": "ABCDEFGHIJKLTU"
         };
 
         var _DATA = {
@@ -155,30 +152,30 @@
             "all": 4
         }
         var dict = {
-            "A" : 7,
-            "B" : 8,
-            "C" : 2,
-            "E" : 8,
-            "F" : 21,
-            "G" : 1,
-            "H" : 8,
-            "I" : 2,
-            "J" : 1,
-            "K" : 12,
-            "L" : 8,
-            "T" : 4,
-            "U" : 7
+            "A": 7,
+            "B": 8,
+            "C": 2,
+            "E": 8,
+            "F": 21,
+            "G": 1,
+            "H": 8,
+            "I": 2,
+            "J": 1,
+            "K": 12,
+            "L": 8,
+            "T": 4,
+            "U": 7
         }
 
-        function onValueChanged(){
+        function onValueChanged() {
             var value = document.getElementById("type").value;
             var orgs = document.getElementById("org");
             while (orgs.firstChild) {
                 orgs.removeChild(orgs.firstChild);
             }
             var groups = DATA[value].split("");
-            for(var i = 0; i < groups.length; i++){
-                for(var j = 1; j <= dict[groups[i]]; j++){
+            for (var i = 0; i < groups.length; i++) {
+                for (var j = 1; j <= dict[groups[i]]; j++) {
                     let op = document.createElement("option");
                     op.value = groups[i] + "-" + j;
                     op.text = groups[i] + "-" + j;
@@ -187,18 +184,18 @@
             }
         }
 
-        function onClick(){
+        function onClick() {
             var value = document.getElementById("type").value;
-            if(value === "invalid"){
+            if (value === "invalid") {
                 alert("部門と団体を選択してください");
                 return;
-            }else{
+            } else {
                 var value = document.getElementById("type").value;
                 var orgs = document.getElementById("org");
                 var data_num = _DATA[value];
 
-                var url = "https://suishosai.netlify.com/vote.html?org=%22"+orgs.value.replace("-", "_")+"%22&type="+data_num;
-                
+                var url = "https://suishosai.netlify.com/vote.html?org=%22" + orgs.value.replace("-", "_") + "%22&type=" + data_num;
+
                 qrcode.makeCode(url);
             }
         }
