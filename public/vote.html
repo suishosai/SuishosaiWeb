@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>【公式】翠翔祭2019 投票ページ</title>
+    <title>投票ページ |【公式】翠翔祭2019</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="shortcut icon" href="images/favicon.ico" />
@@ -37,10 +37,8 @@
                 <li><a href="access.html">アクセス</a></li>
             </ul>
             <ul class="icons">
-                <li><a href="https://twitter.com/suishosai0123" class="icon fa-twitter"><span
-                            class="label">Twitter</span></a></li>
-                <li><a href="https://www.instagram.com/suishousai2019" class="icon fa-instagram"><span
-                            class="label">Instagram</span></a></li>
+                <li><a href="https://twitter.com/suishosai0123" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.instagram.com/suishousai2019" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
             </ul>
         </nav>
 
@@ -55,10 +53,12 @@
                 .yokoku {
                     text-align: center;
                 }
-                .yokoku:last-child{
+
+                .yokoku:last-child {
                     padding: 4rem 4rem 2rem 4rem;
                 }
-                #resultMessage{
+
+                #resultMessage {
                     text-align: center;
                 }
             </style>
@@ -85,8 +85,7 @@
                     <h3>Social</h3>
                     <ul class="icons">
                         <li><a href="https://twitter.com/suishosai0123" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="https://www.instagram.com/suishousai2019" class="icon fa-instagram"><span
-                                    class="label">Instagram</span></a></li>
+                        <li><a href="https://www.instagram.com/suishousai2019" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
                     </ul>
                 </section>
             </section>
@@ -114,19 +113,19 @@
     <script src="assets/js/component.1.js"></script>
     <script>
         var res = getQueryString();
-        if(res["org"] !== undefined && res["type"] !== undefined){
+        if (res["org"] !== undefined && res["type"] !== undefined) {
             if (getUserID() !== null) {
                 post(res["org"], res["type"]);
-            }else{
-                A(function(){
+            } else {
+                A(function () {
                     post(res["org"], res["type"]);
                 });
             }
-        }else{
+        } else {
             document.getElementById("resultMessage").textContent = "不正なパラメータが付与されました";
         }
 
-        function post(org, type){
+        function post(org, type) {
             postData(
                 "https://suishosai-server-php.herokuapp.com/redirect1.php",
                 createVoteRequestUrl(org, type),
