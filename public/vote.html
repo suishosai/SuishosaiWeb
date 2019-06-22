@@ -205,7 +205,7 @@
         }
         var res = getQueryString();
         if (res["org"] !== undefined && res["type"] !== undefined) {
-            var org = res["org"].replace("/\"/g", "").replace("_", "-");
+            var org = res["org"].split("\"").join("").replace("_", "-");
             console.log(org);
             
             var name = pair[org];
