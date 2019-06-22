@@ -210,10 +210,10 @@
             
             var name = pair[org];
             if(res["QR"] === undefined){
-                if(confirm("本当に"+names[res["type"]]+"で"+name+"に投票してもよろしいですか?")){
+                if(confirm("本当に"+names[res["type"]]+"で"+name+"に投票してもよろしいですか?(OKを押すと投票されます)")){
                     _vo(res);
                 }else{
-                    location.href = "https://suishosai.netlify.com/events/"+ org+".html";
+                    location.href = "https://suishosai.netlify.com/events/"+ org.replace("-", "")+".html";
                 }
             }else{
                 _vo(res);
