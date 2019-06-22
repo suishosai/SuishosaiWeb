@@ -294,7 +294,7 @@ function vote(org, type){
         return;
     }else{
         var url = 'https://suishosai.netlify.com/vote.html?org="A"&type=P';
-        url = url.replace("A", org).replace("B", type);
+        url = url.replace("A", org).replace("P", type);
         if(confirm("本当に投票してもよろしいですか？")){
             location.href = url;
         }
