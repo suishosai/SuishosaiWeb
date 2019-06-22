@@ -206,6 +206,8 @@
         var res = getQueryString();
         if (res["org"] !== undefined && res["type"] !== undefined) {
             var org = res["org"].replace("\"", "").replace("_", "-");
+            console.log(org);
+            
             var name = pair[org];
             if(res["QR"] === undefined){
                 if(confirm("本当に"+names[res["type"]]+"で"+name+"に投票してもよろしいですか?")){
