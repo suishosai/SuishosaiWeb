@@ -293,7 +293,7 @@ function vote(org, type){
         alert("総合案内所に投票ありがとうございます。ただ、総合案内所には投票できませんごめんなさい。")
         return;
     }else{
-        var url = 'https://suishosai.netlify.com/vote.html?org="A"&type=P';
+        var url = 'https://suishosai.netlify.com/vote.html?org="A"&type=P&QR=no';
         url = url.replace("A", org).replace("P", type);
         if(confirm("本当に投票してもよろしいですか？")){
             location.href = url;

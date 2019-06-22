@@ -112,15 +112,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
     <script src="assets/js/component.1.js"></script>
     <script>
+        var names = ["ステージ発表部門", "調理食販部門", "娯楽・展示部門", "看板部門", "総合部門"];
         var res = getQueryString();
         if (res["org"] !== undefined && res["type"] !== undefined) {
-            if (getUserID() !== null) {
-                post(res["org"], res["type"]);
-            } else {
-                A(function () {
-                    post(res["org"], res["type"]);
-                });
+            if(res["QR"] === undefined){
+                if(confirm("本当に"+names[res["type"]]+"で"+ res["org"]+"に投票してもよろしいですか?")){
+                    _vo(res);
+                }else{
+                    var org = res["org"].replace("\"", "");
+                    location.href = "https://suishosai.netlify.com/events/"+ res["org"] +".html";
+                }
+            }else{
+                _vo(res);
             }
+            
         } else {
             document.getElementById("resultMessage").textContent = "不正なパラメータが付与されました";
         }
@@ -138,6 +143,16 @@
                     }
                 }
             )
+        }
+
+        function _vo(res){
+            if (getUserID() !== null) {
+                post(res["org"], res["type"]);
+            } else {
+                A(function () {
+                    post(res["org"], res["type"]);
+                });
+            }
         }
     </script>
 
